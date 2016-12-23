@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <fstream>
 #include <string.h>
 using namespace std;
@@ -7,13 +7,13 @@ using namespace std;
 // bin
 int menu()
 {
-	cout<<"1 - Добавить слово в словарь"<<endl;
-	cout<<"2 - Удалить слово из словаря"<<endl;
-	cout<<"3 - Перевод слова с английского на русский"<<endl;
-	cout<<"4 - Перевод слова с русского на английский "<<endl;
-	cout<<"5 - Просмотр словаря"<<endl;
-	cout<<"6 - Записать словарь в файл"<<endl;
-	cout<<"7 - Выход"<<endl;
+	cout<<"1 - Р”РѕР±Р°РІРёС‚СЊ СЃР»РѕРІРѕ РІ СЃР»РѕРІР°СЂСЊ"<<endl;
+	cout<<"2 - РЈРґР°Р»РёС‚СЊ СЃР»РѕРІРѕ РёР· СЃР»РѕРІР°СЂСЏ"<<endl;
+	cout<<"3 - РџРµСЂРµРІРѕРґ СЃР»РѕРІР° СЃ Р°РЅРіР»РёР№СЃРєРѕРіРѕ РЅР° СЂСѓСЃСЃРєРёР№"<<endl;
+	cout<<"4 - РџРµСЂРµРІРѕРґ СЃР»РѕРІР° СЃ СЂСѓСЃСЃРєРѕРіРѕ РЅР° Р°РЅРіР»РёР№СЃРєРёР№ "<<endl;
+	cout<<"5 - РџСЂРѕСЃРјРѕС‚СЂ СЃР»РѕРІР°СЂСЏ"<<endl;
+	cout<<"6 - Р—Р°РїРёСЃР°С‚СЊ СЃР»РѕРІР°СЂСЊ РІ С„Р°Р№Р»"<<endl;
+	cout<<"7 - Р’С‹С…РѕРґ"<<endl;
 
 	int ch;
 	cin>>ch;
@@ -53,7 +53,7 @@ void sort(DictionaryTxt dict[100], int &dsize)
 void addword (DictionaryTxt dict[100], char word[l_word], char translation[l_word], int &dsize)
 {
 	DictionaryTxt neword;
-	///neword.eng=w;  нельзя
+	///neword.eng=w;  РЅРµР»СЊР·СЏ
 	strcpy(neword.eng,word);
 	strcpy(neword.rus,translation);
 
@@ -90,7 +90,7 @@ void engtransl(DictionaryTxt dict[100], int &dsize, char word[l_word])
 	}
 
 	if(strcmp(word,dict[last_ind].eng)==0) cout<<dict[last_ind].rus<<endl;
-	else cout<<"Такого слова нет в словаре"<<endl;
+	else cout<<"РўР°РєРѕРіРѕ СЃР»РѕРІР° РЅРµС‚ РІ СЃР»РѕРІР°СЂРµ"<<endl;
 
 	//cout<<"li "<<last_ind;
 }
@@ -106,7 +106,7 @@ void rustransl(DictionaryTxt dict[100], int &dsize, char word[l_word])
 			break;
 		}
 		else
-			if((i+1)==dsize) cout<<"Такого слова нет в словаре"<<endl;
+			if((i+1)==dsize) cout<<"РўР°РєРѕРіРѕ СЃР»РѕРІР° РЅРµС‚ РІ СЃР»РѕРІР°СЂРµ"<<endl;
 	}
 
 }
@@ -141,7 +141,7 @@ int form(DictionaryTxt dict[100])
 
 	if(fin.is_open()==0)
 	{
-		cout<<"Файл не найден";
+		cout<<"Р¤Р°Р№Р» РЅРµ РЅР°Р№РґРµРЅ";
 		system("pause");
 	}
 
@@ -171,7 +171,7 @@ int main()
 		{
 		case 1:
 			{
-				cout<<"Введите слово и его перевод:";
+				cout<<"Р’РІРµРґРёС‚Рµ СЃР»РѕРІРѕ Рё РµРіРѕ РїРµСЂРµРІРѕРґ:";
 				cin>>w>>tr;
 
 				addword(dict,w,tr,dsize);
@@ -179,7 +179,7 @@ int main()
 			}
 		case 2:
 			{
-				cout<<"Введите слово, которое нужно удалить:";
+				cout<<"Р’РІРµРґРёС‚Рµ СЃР»РѕРІРѕ, РєРѕС‚РѕСЂРѕРµ РЅСѓР¶РЅРѕ СѓРґР°Р»РёС‚СЊ:";
 				cin>>dword;
 				deleteword(dict,dword,dsize);
 				break;
@@ -187,7 +187,7 @@ int main()
 		case 3:
 			{
 				char engw[l_word];
-				cout<<"Введите английской слово для перевода ";
+				cout<<"Р’РІРµРґРёС‚Рµ Р°РЅРіР»РёР№СЃРєРѕР№ СЃР»РѕРІРѕ РґР»СЏ РїРµСЂРµРІРѕРґР° ";
 				cin>>engw;
 				engtransl(dict,dsize,engw);
 				break;
@@ -195,7 +195,7 @@ int main()
 		case 4: 
 			{
 				char rusw[l_word];
-				cout<<"Введите русское слово для перевода ";
+				cout<<"Р’РІРµРґРёС‚Рµ СЂСѓСЃСЃРєРѕРµ СЃР»РѕРІРѕ РґР»СЏ РїРµСЂРµРІРѕРґР° ";
 				cin>>rusw;
 				rustransl(dict,dsize,rusw);
 				break;
@@ -213,7 +213,7 @@ int main()
 		case 7: return 0; 
 		default:
 			{
-				cout<<" Надо вводить число от 1 до 7"<<endl;
+				cout<<" РќР°РґРѕ РІРІРѕРґРёС‚СЊ С‡РёСЃР»Рѕ РѕС‚ 1 РґРѕ 7"<<endl;
 				break;
 			}
 
